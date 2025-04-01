@@ -287,14 +287,14 @@ body.hello-active {
 }
 
 #helloSection h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #ffffff;
     text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
     margin-bottom: 10px;
 }
 
 #helloSection p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #d1e7ff;
     margin-bottom: 30px;
 }
