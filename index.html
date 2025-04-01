@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仝小铁的网站</title>
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="hello-active"> <!-- 默认显示 helloSection 的背景 -->
+    <!-- helloSection: 初始欢迎界面 -->
+    <div id="helloSection">
+        <div class="container">
+            <!-- 地铁标志 -->
+            <div class="metro-logo">M</div>
+            <!-- 欢迎标题 -->
+            <h1>欢迎来到仝小铁的网站</h1>
+            <!-- 简介 -->
+            <p>你喜欢地铁吗？欢迎和我一起探索城市的地下脉络！</p>
+            <!-- 地铁线路图 -->
+            <div class="metro-line">
+                <div class="station"></div>
+                <div class="station"></div>
+                <div class="station"></div>
+            </div>
+            <!-- 地铁动态地图 -->
+            <div class="metro-map">
+                <div class="metro-train"></div>
+            </div>
+            <!-- 进入主界面的按钮 -->
+            <button class="button" id="helloask">请回答问题进入主界面</button>
+        </div>
+        <!-- 提问模态框的遮罩层 -->
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <!-- 提问模态框 -->
+        <div class="modal" id="questionModal">
+            <h2 id="modalQuestion">问题</h2>
+            <input type="text" id="modalAnswer" placeholder="请输入答案">
+            <button id="submitAnswer">提交</button>
+        </div>
+        <!-- 回答正确后的确认模态框 -->
+        <div class="confirm-modal" id="confirmModal">
+            <h2>回答正确！欢迎进入主界面！</h2>
+            <button id="confirmButton">确认</button>
+        </div>
+    </div>
+
+    <!-- mainSection: 主界面 -->
+    <div id="mainSection" style="display: none;">
+        <!-- 菜单导航栏 -->
+        <nav class="menu">
+            <ul>
+                <li><a href="#home" data-target="home">首页</a></li>
+                <li><a href="#line-query" data-target="line-query">线路查询</a></li>
+                <li><a href="#deepseek" data-target="deepseek">DeepSeek大模型</a></li>
+                <li><a href="#game" data-target="game">游戏</a></li>
+                <li><a href="#todo" data-target="todo">待开发</a></li>
+            </ul>
+        </nav>
+
+        <!-- 首页内容 -->
+        <section id="home" class="content active">
+            <div class="floating-box">
+                <h2 class="zhong">欢迎来到仝小铁的网站</h2>
+                <img class="imglogo" src="images/logo1.png" alt="图片加载失败">
+                <p>内容介绍：本网站可以在“首页”看到天津地铁的一些的最新动态和即将开通的线路等。可以在“线路查询”中查询天津地铁所有线路的站点以及站点信息。可以在“DeepSeek大模型”中与DeepSeek交流。可以在“游戏”界面中玩天津地铁6号线的模拟。本网页还有许多待开发功能，敬请期待……<br>功能教程：本网站上方有一个菜单，有4个选项。打开默认为首页，如需使用线路查询功能，请点击菜单中的“线路查询”，点击后，请在选择框中选择一个线路，选择后会显示该线路的全部站点（不包含规划站点）以及站点的信息。如需返回首页，请点击菜单中的“首页”，提示：DeepSeek功能无法使用！游戏功能待开发，敬请期待……</p>
+            </div>
+            <!-- 新闻 -->
+            <div class="floating-news" id="news-container">
+                <div id="news" class="floating-img">
+                    <h2 class="zhong">天津地铁最新动态</h2>
+                    <div class="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="images/news1.jpg" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/news2.jpg" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/news3.jpg" alt="Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/news4.jpg" alt="Image 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           <!-- 公告 -->
+                <div id="gonggao" class="floating-gonggao">
+                    <h2 class="zhong">公告</h2>
+                    <p>DeepSeek功能无法使用！游戏功能待开发！</p>
+                </div>
+            </div>
+            <div class="floating-box">
+                <h2 class="zhong">预告</h2>
+                <p>即将到来的地铁活动...</p>
+            </div>
+        </section>
+
+        <!-- 线路查询 -->
+        <section id="line-query" class="content">
+            <div class="floating-box">
+                <h2 class="zhong">线路查询</h2>
+                <div class="dropdown">
+                    <select id="line-select">
+                        <option value="">请选择线路</option>
+                        <option value="line1">1号线</option>
+                        <option value="line2">2号线</option>
+                        <option value="line3">3号线</option>
+                        <option value="line4">4号线</option>
+                        <option value="line5">5号线</option>
+                        <option value="line6">6号线</option>
+                        <option value="line7">7号线</option>
+                        <option value="line8">8号线</option>
+                        <option value="line9">9号线</option>
+                        <option value="line10">10号线</option>
+                        <option value="line11">11号线</option>
+                        <option value="line_jinjing">津静线</option>
+                    </select>
+                </div>
+                <div id="station-info"></div>
+            </div>
+        </section>
+
+        <!-- DeepSeek大模型 -->
+        <section id="deepseek" class="content">
+            <div class="floating-ds">
+                <h2>DeepSeek大模型</h2>
+                <p>提示：此功能无法使用！</p>
+                <input type="text" id="question" placeholder="请输入问题">
+                <button id="ask-btn">询问</button>
+                <p id="response"></p>
+            </div>
+            <div><p><br>内容由AI大模型生成，请仔细甄别。</p></div>
+        </section>
+
+        <!-- 游戏 -->
+        <section id="game" class="content">
+            <div class="floating-box">
+                <h2 class="zhong">此功能待开发</h2>
+                <button onclick="startGame()">开始游戏</button>
+                <button onclick="stopGame()">停止游戏</button>
+                <iframe id="game-iframe" src="game/tjmetroline6.html" style="width:100%; height:500px; border:none;"></iframe>
+            </div>
+        </section>
+
+        <!-- 待开发 -->
+        <section id="todo" class="content">
+            <div class="floating-box">
+                <h2 class="zhong">待开发</h2>
+                <p>这里是待开发的内容...</p>
+            </div>
+            <div class="floating-box">
+                <h2 class="zhong">待开发</h2>
+                <p>这里是待开发的内容...</p>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; 2025 仝小铁的地铁迷网站</p>
+        </footer>
+    </div>
+
+    <!-- 脚本逻辑 -->
+    <script src="/js/script.js"></script>
+</body>
+</html>
